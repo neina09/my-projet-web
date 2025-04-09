@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <title>Dashboard Médical</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background-color: #f1f1f1;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .menu {
+      background-color: #0a757c;
+      color: white;
+      height: 100vh;
+      padding: 20px;
+      width: 70px;
+      transition: 0.5s;
+      overflow: hidden;
+    }
+
+    .menu:hover {
+      width: 240px;
+    }
+
+    ul {
+      list-style: none;
+      height: 100%;
+      position: relative;
+    }
+
+    ul li a {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+      margin: 10px 0;
+    }
+
+    ul li a:hover,
+    .active {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    ul li a i {
+      font-size: 24px;
+      min-width: 30px;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .img-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid white;
+      flex-shrink: 0;
+    }
+
+    .img-box img {
+      width: 100%;
+    }
+
+    .profile h2 {
+      font-size: 18px;
+      text-transform: capitalize;
+      white-space: nowrap;
+    }
+
+    .log-out {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .log-out a {
+      background-color: #da514c;
+      display: block;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-header {
+      background-color: #ffffff;
+      padding: 15px 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .main-header h2 {
+      color: #0a757c;
+      font-size: 24px;
+    }
+
+    .search-add {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-add input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      width: 250px;
+    }
+
+    .add-btn {
+      background-color: #0a757c;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .add-btn:hover {
+      background-color: #064a4f;
+    }
+
+    .service {
+      flex-direction: row;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      background-color: #f5eded;
+      border-radius: 8px;
+    }
+
+    .service > div:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h3 {
+      color: #216670;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-size: 25px;
+      text-align: center;
+    }
+
+    .dentisterie {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 15px;
+      height: 150px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .dentisterie h4 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: #031c20;
+    }
+
+    .dentisterie img {
+      height: 80px;
+      width: 80px;
+    }
+
+    .service > div {
+      display: flex;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service h4 {
+      font-size: 24px;
+      color: #0d464e;
+      text-align: center;
+    }
+
+    .sepestalite {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <ul>
+      <li class="profile">
+        <div class="img-box">
+          <img src="doctor.jpeg" alt="admin" />
+        </div>
+        <h2>Neina Med vall</h2>
+      </li>
+      <li><a href="Admin.html" class="active"><i class="fas fa-home"></i> Accueil</a></li>
+      <li><a href="patients.html"><i class="fas fa-user-injured"></i> Patients</a></li>
+      <li><a href="doctors.html"><i class="fas fa-user-md"></i> Médecins</a></li>
+      <li><a href="appointments.html"><i class="fas fa-calendar-check"></i> Rendez-vous</a></li>
+      <li><a href="settings.html"><i class="fas fa-cogs"></i> Paramètres</a></li>
+      <li class="log-out"><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <header class="main-header">
+      <h2>Tableau de bord médical</h2>
+      <div class="search-add">
+        <input type="text" placeholder="Rechercher un spécialité..." />
+        <button class="add-btn"><i class="fas fa-plus"></i> Ajouter</button>
+      </div>
+    </header>
+
+    <div class="sepestalite">
+      <h3>Spécialisations disponibles</h3>
+      <div class="service">
+        <div class="dentisterie">
+          <h4>Dentisterie</h4>
+          <img src="imges/tooth.png" alt="" class="img">
+        </div>
+        <div class="dentisterie">
+          <h4>Chirurgie</h4>
+          <img src="imges/scalpel.png" alt="" class="img">
+        </div>
+        <div class="dentisterie">
+          <h4>Ophtalmologie</h4>
+          <img src="imges/eye-treatment.png" alt="" class="img">
+        </div>
+        <div class="dentisterie">
+          <h4>Cardiologie</h4>
+          <img src="imges/heart.png" alt="" class="img">
+        </div>
+        <!-- يمكنك إضافة المزيد من التخصصات هنا -->
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+

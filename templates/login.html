@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion - Clinique</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    .login-container img {
+      display: block;
+      margin: 0 auto 10px auto;
+      width: 60px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .login-container input,
+    .login-container select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background: rgba(15, 117, 109, 0.685);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .login-container button:hover {
+      background: rgba(12, 95, 88, 0.9);
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .link a {
+      text-decoration: none;
+      color: #0f756d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <img src="imges/stethoscope.png" alt="logo clinique">
+    <h2>Bienvenure</h2>
+
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Email" required>
+      <input type="password" id="password" placeholder="password" required>
+      <select name="role" required>
+        <option value="">-- Sélectionner un rôle --</option>
+        <option value="medecin">Médecin</option>
+        <option value="patient">Patient</option>
+        <option value="secretaire">Secrétaire</option>
+      </select>
+      <button type="submit">Se connecter</button>
+      <p id="error" class="error-message"></p>
+    </form>
+
+    <div class="link">
+      <p>Pas de compte ? <a href="#" onclick="toggleForm()">Créer un compte</a></p>
+    </div>
+
+    <!-- Formulaire d'inscription caché -->
+    <form id="registerForm" style="display: none; margin-top: 20px;">
+      <input type="text" placeholder="Nom complet" name="nom" required>
+      <input type="email" placeholder="Email" name="email" required>
+      <input type="password" placeholder="Mot de passe" name="password" required>
+      <select name="role" required>
+        <option value="">-- Sélectionner un rôle --</option>
+        <option value="medecin">Médecin</option>
+        <option value="patient">Patient</option>
+        <option value="secretaire">Secrétaire</option>
+      </select>
+      <button type="submit">S'inscrire</button>
+    </form>
+  </div>
+
+  <script>
+    function toggleForm() {
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+      const link = document.querySelector('.link p');
+
+      if (registerForm.style.display === 'none') {
+        registerForm.style.display = 'block';
+        loginForm.style.display = 'none';
+        link.innerHTML = 'Déjà inscrit ? <a href="#" onclick="toggleForm()">Se connecter</a>';
+      } else {
+        registerForm.style.display = 'none';
+        loginForm.style.display = 'block';
+        link.innerHTML = 'Pas de compte ? <a href="#" onclick="toggleForm()">Créer un compte</a>';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <title>Dashboard Médical</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background-color: #f1f1f1;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .menu {
+      background-color: #0a757c;
+      color: white;
+      height: 100vh;
+      padding: 20px;
+      width: 70px;
+      transition: 0.5s;
+      overflow: hidden;
+      
+    }
+
+    .menu:hover {
+      width: 240px;
+    }
+
+    ul {
+      list-style: none;
+      height: 100%;
+      position: relative;
+    }
+
+    ul li a {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+      margin: 10px 0;
+    }
+
+    ul li a:hover,
+    .active {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    ul li a i {
+      font-size: 24px;
+      min-width: 30px;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .img-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid white;
+      flex-shrink: 0;
+    }
+
+    .img-box img {
+      width: 100%;
+    }
+
+    .profile h2 {
+      font-size: 18px;
+      text-transform: capitalize;
+      white-space: nowrap;
+    }
+
+    .log-out {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .log-out a {
+      background-color: #da514c;
+      display: block;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+    }
+   
+    
+
+</style>
+</head>
+<body>
+  <div class="menu">
+    <ul>
+      <li class="profile">
+        <div class="img-box">
+          <img src="doctor.jpeg" alt="admin" />
+        </div>
+        <h2>Neina Med vall</h2>
+      </li>
+      <li><a href="Admin.html"><i class="fas fa-home"></i> Accueil</a></li>
+      <li><a href="patients.html" class="active" ><i class="fas fa-user-injured"></i> Patients</a></li>
+      <li><a href="doctors.html"><i class="fas fa-user-md"></i> Médecins</a></li>
+      <li><a href="appointments.html"><i class="fas fa-calendar-check"></i> Rendez-vous</a></li>
+      <li><a href="settings.html"><i class="fas fa-cogs"></i> Paramètres</a></li>
+      <li class="log-out"><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+    </ul>
+  </div>
+  <div class="table_form">
+          
+      <table>
+
+          <thead>
+              <tr>
+                  <th>Nom</th>
+                  <th>Gmail</th>
+                  <th>Numero de telphone</th>
+                  <th>Maldie</th>
+                  <th>Doctor</th>
+                  <th>supprime</th>
+                  <th>Modife</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Ahmed</td>
+                  <td>ahmed@gamil.com</td>
+                  <td>37019444</td>
+                  <td>l7em</td>
+                  <td>sidi med</td>
+                  <td><button class="supprime">supprime</button></td>
+                  <td><button class="modife">Modife</button></td>
+                  
+
+              </tr>
+              <tr>
+                  <td>Ahmed</td>
+                  <td>ahmed@gamil.com</td>
+                  <td>37019444</td>
+                  <td>l7em</td>
+                  <td>sidi med</td>
+                  <td><button class="supprime">supprime</button></td>
+                  <td><button class="modife">Modife</button></td>
+                  
+
+              </tr>
+              <tr>
+                  <td>Ahmed</td>
+                  <td>ahmed@gamil.com</td>
+                  <td>37019444</td>
+                  <td>l7em</td>
+                  <td>sidi med</td>
+                  <td><button class="supprime">supprime</button></td>
+                  <td><button class="modife">Modife</button></td>
+                  
+
+              </tr>
+              <tr>
+                  <td>Ahmed</td>
+                  <td>ahmed@gamil.com</td>
+                  <td>37019444</td>
+                  <td>l7em</td>
+                  <td>sidi med</td>
+                  <td><button class="supprime">supprime</button></td>
+                  <td><button class="modife">Modife</button></td>
+                  
+
+              </tr>
+              <tr>
+                  <td>Ahmed</td>
+                  <td>ahmed@gamil.com</td>
+                  <td>37019444</td>
+                  <td>l7em</td>
+                  <td>sidi med</td>
+                  <td><button class="supprime">supprime</button></td>
+                  <td><button class="modife">Modife</button></td>
+                  
+
+              </tr>
+              
+              
+              
+          </tbody>
+
+      </table>
+      <div class="formuler">
+              
+          <h2>Ajouter un nouveau patients</h2>
+          <form action=""  class="inputs">
+              <input type="text">
+              <input type="text">
+              <input type="text">
+              <input type="text" name="" id="">
+              <input type="text">
+              <button>Ajouter</button>
+          </form>
+      </div>
+  </div>
+
+
+
+
+
+</body>
+</html>

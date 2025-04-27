@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Utilisateurs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    /* Sidebar (Menu) */
+    .menu {
+      background-color: #0a757c;
+      color: white;
+      width: 250px;
+      height: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .menu:hover {
+      width: 240px;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu ul li a {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+      margin: 10px 0;
+    }
+
+    .menu ul li a:hover,
+    .active {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .menu ul li a i {
+      font-size: 24px;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .img-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid white;
+      flex-shrink: 0;
+    }
+
+    .img-box img {
+      width: 100%;
+    }
+
+    .profile h2 {
+      font-size: 18px;
+      text-transform: capitalize;
+      white-space: nowrap;
+    }
+
+    .log-out {
+      margin-top: auto;
+    }
+
+    .log-out a {
+      background-color: #da514c;
+      display: block;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      background-color: #fff;
+      overflow-y: auto;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #2e86de;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1a6fcb;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px;
+      width: 250px;
+      text-align: center;
+      margin: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    form {
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .actions button {
+      margin: 5px 3px;
+      background-color: #28a745;
+      border: none;
+      padding: 8px 12px;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .actions button:hover {
+      background-color: #218838;
+    }
+
+    .actions .delete {
+      background-color: #e74c3c;
+    }
+
+    .actions .delete:hover {
+      background-color: #c0392b;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- * -->
+  <div class="menu">
+    <div>
+      <div class="profile">
+        <div class="img-box">
+          <img src="doctor.jpeg" alt="admin" />
+        </div>
+        <h2>Neina Med vall</h2>
+      </div>
+      <ul>
+        <li><a href="Admin.html"><i class="fas fa-home"></i> Accueil</a></li>
+        <li><a href="patients.html"><i class="fas fa-user-injured"></i> Patients</a></li>
+        <li><a href="doctors.html"><i class="fas fa-user-md"></i> Médecins</a></li>
+        <li><a href="dossiers.html"><i class="fas fa-file-medical"></i> Dossiers</a></li>
+        <li><a href="utlisateur.html" class="active"><i class="fas fa-users-cog" ></i> Utilisateurs</a></li>
+        <li><a href="appointments.html"><i class="fas fa-calendar-check"></i> Rendez-vous</a></li>
+        <li><a href="settings.html"><i class="fas fa-cogs"></i> Paramètres</a></li>
+      </ul>
+    </div>
+    <div class="log-out">
+      <a href="logout.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    </div>
+  </div>
+
+  <!-- * -->
+  <div class="main-content">
+    <h1>Gestion des Secrétaires</h1>
+
+    <form id="formSecretaire" onsubmit="ajouterSecretaire(event)">
+      <input type="text" id="nom" placeholder="Nom complet" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="tel" placeholder="Téléphone">
+      <input type="url" id="photo" placeholder="Lien de la photo">
+      <button type="submit">Enregistrer</button>
+    </form>
+
+    <div class="container" id="listeSecretaire"></div>
+  </div>
+
+  <script>
+    const liste = document.getElementById("listeSecretaire");
+    const form = document.getElementById("formSecretaire");
+    let modeEdition = false;
+    let carteEnEdition = null;
+
+    function ajouterSecretaire(e) {
+      e.preventDefault();
+      const nom = document.getElementById("nom").value;
+      const email = document.getElementById("email").value;
+      const tel = document.getElementById("tel").value;
+      const photo = document.getElementById("photo").value || "https://via.placeholder.com/100";
+
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <img src="${photo}" alt="photo">
+        <h3>${nom}</h3>
+        <p>Email: ${email}</p>
+        <p>Téléphone: ${tel}</p>
+        <div class="actions">
+          <button onclick="modifier(this)">Modifier</button>
+          <button class="delete" onclick="supprimer(this)">Supprimer</button>
+        </div>
+      `;
+
+      if (modeEdition && carteEnEdition) {
+        carteEnEdition.remove();
+        modeEdition = false;
+        carteEnEdition = null;
+      }
+
+      liste.appendChild(card);
+      form.reset();
+    }
+
+    function supprimer(btn) {
+      btn.closest(".card").remove();
+    }
+
+    function modifier(btn) {
+      const card = btn.closest(".card");
+      const nom = card.querySelector("h3").innerText;
+      const email = card.querySelectorAll("p")[0].innerText.replace("Email: ", "");
+      const tel = card.querySelectorAll("p")[1].innerText.replace("Téléphone: ", "");
+      const photo = card.querySelector("img").src;
+
+      document.getElementById("nom").value = nom;
+      document.getElementById("email").value = email;
+      document.getElementById("tel").value = tel;
+      document.getElementById("photo").value = photo;
+
+      carteEnEdition = card;
+      modeEdition = true;
+      window.scrollTo(0, 0);
+    }
+  </script>
+
+</body>
+</html>

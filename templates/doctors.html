@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <title>Dashboard Médical</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     * {
       margin: 0;
@@ -28,7 +27,6 @@
       width: 70px;
       transition: 0.5s;
       overflow: hidden;
-      
     }
 
     .menu:hover {
@@ -102,10 +100,199 @@
       padding: 10px;
       border-radius: 5px;
     }
-   
+
+    .main {
+      flex: 1;
+      padding: 40px;
+      background-color: #fff;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+    }
+
+    thead th {
+      background-color: #58a5aa;
+      color: white;
+      padding: 10px;
+      text-align: left;
+    }
+
+    tbody td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .formuler {
+      background-color: #c9d4d4;
+      padding: 15px 25px;
+      border-radius: 15px;
+    }
+
+    .supprime, .modife {
+      width: 100%;
+      height: 30px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .supprime {
+      background: #da391c;
+    }
+
+    .modife {
+      background: #30da71;
+    }
+
+    .supprime:hover {
+      background: #ce503a;
+      letter-spacing: 1px;
+    }
+
+    .modife:hover {
+      background: #54e78d;
+      letter-spacing: 1px;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .ajouter-btn {
+      padding: 10px 20px;
+      background-color: #0a757c;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .ajouter-btn:hover {
+      background-color: #095a60;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto;
+  
+    }
+
+    .search-container input {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #aaa;
+      border-radius: 10px 0 0 10px;
+      padding-left: 250px;
+      padding-right:250px ;
+      margin-left: 0px;
+
+    }
+
+    .search-container button {
+      padding: 11px 15px;
+      background-color: #0a757c;
+      color: white;
+      border: none;
+      margin-left: 0px;
+      border-radius: 0 10px 10px 0;
+      cursor: pointer;
+    }
+
+    .search-container button:hover {
+      background-color: #095a60;
+    }
     
 
-</style>
+    /* Modal */
+    .formuler{
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .modal-content img {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .close {
+      float: right;
+      font-size: 20px;
+      cursor: pointer;
+      color: red;
+    }
+    .login-container {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    .login-container img {
+      display: block;
+      margin: 0 auto 10px auto;
+      width: 60px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .login-container input,
+    .login-container select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background: rgba(15, 117, 109, 0.685);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .login-container button:hover {
+      background: rgba(12, 95, 88, 0.9);
+    }
+
+  </style>
 </head>
 <body>
   <div class="menu">
@@ -117,107 +304,115 @@
         <h2>Neina Med vall</h2>
       </li>
       <li><a href="Admin.html"><i class="fas fa-home"></i> Accueil</a></li>
-      <li><a href="patients.html" class="active" ><i class="fas fa-user-injured"></i> Patients</a></li>
-      <li><a href="doctors.html"><i class="fas fa-user-md"></i> Médecins</a></li>
+      <li><a href="patients.html" ><i class="fas fa-user-injured"></i> Patients</a></li>
+      <li><a href="doctors.html" class="active"><i class="fas fa-user-md"></i> Médecins</a></li>
+      <li><a href="dossiers.html"><i class="fas fa-file-medical"></i> Dossiers</a></li>
+      <li><a href="utlisateur.html"><i class="fas fa-users-cog"></i> Utilisateurs</a></li>
       <li><a href="appointments.html"><i class="fas fa-calendar-check"></i> Rendez-vous</a></li>
       <li><a href="settings.html"><i class="fas fa-cogs"></i> Paramètres</a></li>
       <li class="log-out"><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
     </ul>
   </div>
-  <div class="table_form">
-          
-      <table>
 
-          <thead>
-              <tr>
-                  <th>Nom</th>
-                  <th>Gmail</th>
-                  <th>Numero de telphone</th>
-                  <th>Maldie</th>
-                  <th>Doctor</th>
-                  <th>supprime</th>
-                  <th>Modife</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td>Ahmed</td>
-                  <td>ahmed@gamil.com</td>
-                  <td>37019444</td>
-                  <td>l7em</td>
-                  <td>sidi med</td>
-                  <td><button class="supprime">supprime</button></td>
-                  <td><button class="modife">Modife</button></td>
-                  
+  <div class="main">
+    <div class="top-bar">
 
-              </tr>
-              <tr>
-                  <td>Ahmed</td>
-                  <td>ahmed@gamil.com</td>
-                  <td>37019444</td>
-                  <td>l7em</td>
-                  <td>sidi med</td>
-                  <td><button class="supprime">supprime</button></td>
-                  <td><button class="modife">Modife</button></td>
-                  
-
-              </tr>
-              <tr>
-                  <td>Ahmed</td>
-                  <td>ahmed@gamil.com</td>
-                  <td>37019444</td>
-                  <td>l7em</td>
-                  <td>sidi med</td>
-                  <td><button class="supprime">supprime</button></td>
-                  <td><button class="modife">Modife</button></td>
-                  
-
-              </tr>
-              <tr>
-                  <td>Ahmed</td>
-                  <td>ahmed@gamil.com</td>
-                  <td>37019444</td>
-                  <td>l7em</td>
-                  <td>sidi med</td>
-                  <td><button class="supprime">supprime</button></td>
-                  <td><button class="modife">Modife</button></td>
-                  
-
-              </tr>
-              <tr>
-                  <td>Ahmed</td>
-                  <td>ahmed@gamil.com</td>
-                  <td>37019444</td>
-                  <td>l7em</td>
-                  <td>sidi med</td>
-                  <td><button class="supprime">supprime</button></td>
-                  <td><button class="modife">Modife</button></td>
-                  
-
-              </tr>
-              
-              
-              
-          </tbody>
-
-      </table>
-      <div class="formuler">
-              
-          <h2>Ajouter un nouveau patients</h2>
-          <form action=""  class="inputs">
-              <input type="text">
-              <input type="text">
-              <input type="text">
-              <input type="text" name="" id="">
-              <input type="text">
-              <button>Ajouter</button>
-          </form>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Rechercher un patient..." />
+        <button><i class="fas fa-search"></i></button>
+        
       </div>
+      <div>
+        <button class="ajouter-btn" onclick="openForm()">Ajouter</button>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>gamil</th>
+          <th>Gmail</th>
+          <th>Numéro de téléphone</th>
+          <th>Specilate</th>
+          <th>Supprimer</th>
+          <th>Modifier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ahmed</td>
+          <td>ahmed@gamil.com</td>
+          <td>37019444</td>
+          <td>l7em</td>
+          <td>Sidi Med</td>
+          <td><button class="supprime">Supprimer</button></td>
+          <td><button class="modife">Modifier</button></td>
+        </tr>
+        <tr>
+          <td>Ahmed</td>
+          <td>ahmed@gamil.com</td>
+          <td>37019444</td>
+          <td>l7em</td>
+          <td>Sidi Med</td>
+          <td><button class="supprime">Supprimer</button></td>
+          <td><button class="modife">Modifier</button></td>
+        </tr>
+        <tr>
+          <td>Ahmed</td>
+          <td>ahmed@gamil.com</td>
+          <td>37019444</td>
+          <td>l7em</td>
+          <td>Sidi Med</td>
+          <td><button class="supprime">Supprimer</button></td>
+          <td><button class="modife">Modifier</button></td>
+        </tr>
+        <tr>
+          <td>Ahmed</td>
+          <td>ahmed@gamil.com</td>
+          <td>37019444</td>
+          <td>l7em</td>
+          <td>Sidi Med</td>
+          <td><button class="supprime">Supprimer</button></td>
+          <td><button class="modife">Modifier</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
+ 
+  <!-- Modal Form -->
 
+  <div id="formModal" class="formuler">
+    <div class="login-container">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h2>Ajouter un patient</h2>
+      <!-- Ajoutez ici les champs du formulaire -->
+      <input type="text" placeholder="Nom du patient">
+      <input type="email" placeholder="Email">
+      <input type="tel" placeholder="Téléphone">
+      <input type="text" placeholder="Maladie">
+      <input type="text" placeholder="Docteur">
+      <button>Enregistrer</button>
+    </div>
+  </div>
+  <script>
+    function openForm() {
+      document.getElementById("formModal").style.display = "flex";
+    }
+  
+    function closeForm() {
+      document.getElementById("formModal").style.display = "none";
+    }
+  
+    // إغلاق النافذة عند الضغط خارجها
+    window.onclick = function(event) {
+      const modal = document.getElementById("formModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 
-
-
+  
 </body>
 </html>

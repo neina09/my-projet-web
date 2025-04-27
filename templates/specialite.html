@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <title>Document</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #f1f1f1;
+            display: flex;
+            min-height: 100%;
+        }
+
+        .menu {
+            background-color: #0a757c;
+            color: white;
+            height: 100vh;
+            padding: 20px;
+            width: 70px;
+            transition: 0.5s;
+            overflow: hidden;
+            
+        }
+
+            .menu:hover {
+            width: 240px;
+            }
+
+            ul {
+            list-style: none;
+            height: 100%;
+            position: relative;
+            }
+
+            ul li a {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+            margin: 10px 0;
+            }
+
+            ul li a:hover,
+            .active {
+            background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            ul li a i {
+            font-size: 24px;
+            min-width: 30px;
+            }
+
+            .profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            
+            }
+
+            .img-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid white;
+            flex-shrink: 0;
+            }
+
+            .img-box img {
+            width: 100%;
+            }
+
+            .profile h2 {
+            font-size: 18px;
+            text-transform: capitalize;
+            white-space: nowrap;
+            }
+
+            .log-out {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            }
+
+            .log-out a {
+            background-color: #da514c;
+            display: block;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            }
+            
+
+        main {
+            flex: 1;
+            padding: 20px;
+            margin-left: 70px;
+        }
+
+        .title-clinque {
+            
+            color: rgb(9, 92, 95);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        h3 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 20px;
+        }
+
+        .service {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .dentisterie {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .dentisterie h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #0a757c;
+        }
+
+        .dentisterie .img {
+            max-width: 100px;
+            height: auto;
+            margin: 0 auto;
+        }
+        .service > div:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+                            
+
+
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <div class="menu">
+            <ul>
+              <li class="profile">
+                <div class="img-box">
+                  <img src="doctor.jpeg" alt="admin" />
+                </div>
+              </li>
+              <li><a href="Admin.html" class="active"><i class="fas fa-home"></i> Accueil</a></li>
+              <li><a href="patients.html"><i class="fas fa-user-injured"></i> Patients</a></li>
+              <li><a href="doctors.html"><i class="fas fa-user-md"></i> Médecins</a></li>
+              <li><a href="appointments.html"><i class="fas fa-calendar-check"></i> Rendez-vous</a></li>
+              <li><a href="settings.html"><i class="fas fa-cogs"></i> Paramètres</a></li>
+              <li class="log-out"><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+            </ul>
+          </div>
+    </nav>
+    <main>
+
+        <div class="title-clinque">
+                
+            Bienvenue a notre clinique
+        </div>
+    
+            
+      <h3>Spécialisations disponibles</h3>
+    <div class="service">
+        <div class="dentisterie" id="dentisterie">
+            <h4>dentisterie</h4>
+            <img src="imges/tooth.png" alt="" class="img">
+
+        </div>
+        <div class="dentisterie" id="dentisterie" >
+            <h4>dentisterie</h4>
+            <img src="imges/scalpel.png" alt="" class="img">
+
+        </div>
+        <div class="dentisterie" id="dentisterie">
+            <h4>dentisterie</h4>
+            <img src="imges/eye-treatment.png" alt="" class="img">
+
+        </div>
+        <div class="dentisterie" id="dentisterie">
+            <h4>dentisterie</h4>
+            <img src="imges/heart.png" alt="" class="img">
+
+        </div>
+        <div class="dentisterie" id="dentisterie">
+            <h4>dentisterie</h4>
+            <img src="imges/tooth.png" alt="" class="img">
+
+        </div>
+        <div class="dentisterie" id="dentisterie">
+            <h4>dentisterie</h4>
+            <img src="imges/tooth.png" alt="" class="img">
+
+        </div>
+        <div class="dentisterie" id="dentisterie">
+            <h4>dentisterie</h4>
+            <img src="imges/tooth.png" alt="" class="img">
+
+        </div>
+        <div class="dentisterie" id="dentisterie">
+            <h4>dentisterie</h4>
+            <img src="imges/tooth.png" alt="" class="img">
+
+        </div>
+      
+        
+    </div>
+    </main>
+    <script>
+        document.getElementById("dentisterie").onclick = function() {
+            window.location.href = "my_doctor.html";
+        }
+    
+        document.getElementById("dentisterie").onclick = function() {
+            window.location.href = "my_doctor.html";
+        }
+    
+        document.getElementById("ophtalmologie").onclick = function() {
+            window.location.href = "ophtalmologie.html";
+        }
+    
+        document.getElementById("cardiologie").onclick = function() {
+            window.location.href = "cardiologie.html";
+        }
+        
+        // أضف الباقي حسب عدد التخصصات
+    </script>
+</body>
+</html>
